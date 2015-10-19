@@ -1,0 +1,47 @@
+
+   el metodo main
+
+ es una variable de alto-nivel la cual representa el scope del programa
+ principal a ejecutar por el interpretador.
+
+El método Main es el punto de entrada de una aplicación de consola de C# o una aplicación para Windows.
+(Las bibliotecas y los servicios no requieren un método Main como punto de entrada.) Cuando se inicia
+la aplicación, el método Main es el primer método que se invoca.
+En un programa de C#, sólo puede haber un punto de entrada. Si tiene más de una clase con un método Main,
+debe compilar el programa con la opción del compilador /main para especificar qué método Main se va a
+utilizar como punto de entrada. Para obtener más información, vea /main (Opciones del compilador de C#).
+
+ ejemplo
+
+ public static void main(String[] args) {
+	Bombilla bombilla = new Bombilla();
+	boolean status = true;
+	System.out.println("Opciones:");
+	System.out.println("0 - Encender Bombilla");
+	System.out.println("1 - Apagar Bombilla");
+	System.out.println("2 - Imprimir Estado");
+	System.out.println("3 - Salir");
+	while(status) {
+		int select;
+		System.out.print(">>> ");
+		Scanner scanner = new Scanner(System.in);
+		if(scanner.hasNextInt()) {
+			select = scanner.nextInt();
+			switch(select) {
+				case 0:
+					bombilla.encenderBombilla();
+					break;
+				case 1:
+					bombilla.apagarBombilla();
+					break;
+				case 2:
+					System.out.println("El estado de la bombilla es: " + bombilla.getestadoBombilla());
+					break;
+				case 3:
+					status = false;
+					break;
+				default: System.out.println("Comando Invalido: " + status);
+			}
+		}
+	}
+}
