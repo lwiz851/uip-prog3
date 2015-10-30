@@ -5,4 +5,5 @@ velocidad =120
 distancia=60
 tiempoderecorrido=60/120
 tiempoensegundo=60*0.5*60
+
 print("El tiempo en segundo es " + str(tiempoensegundo))
