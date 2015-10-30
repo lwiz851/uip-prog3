@@ -7,23 +7,23 @@ minuto = int(minuto)
 
 
 
-dia =1440
-hora=60
+day = 1440
+hour=60
 
 
-if minuto > dia:
-   rd=minuto//dia
-   res=minuto%dia
-   h=res//hora
-   m=res%hora
+if minuto > day:
+   rd=minuto//day
+   res=minuto%day
+   h=res//hour
+   m=res%hour
 
 
 
    print("los dias son:"+ str(rd) + "las hora: "+str(h) + "los minuto son: "+str((m)))
 
-elif minuto <= dia:
-   h=minuto//hora
-   m=minuto%hora
+elif minuto <= day:
+   h=minuto//hour
+   m=minuto%hour
    d=0
 
    print("los dias son:"+str(d)+"las hora son:"+str(h)+"los minutos son:"+str((m)))
