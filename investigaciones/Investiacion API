@@ -1,0 +1,53 @@
+Investigacion que es API.
+
+Una API (siglas de 'Application Programming Interface') es un conjunto de reglas (código)
+y especificaciones que las aplicaciones pueden seguir para comunicarse entre ellas:
+sirviendo de interfaz entre programas diferentes de la misma manera en que la interfaz
+de usuario facilita la interacción humano-software.
+Características
+Una API representa la capacidad de comunicación entre componentes de software.
+Se trata del conjunto de llamadas a ciertas bibliotecas que ofrecen acceso a
+ciertos servicios desde los procesos y representa un método para conseguir abstracción
+en la programación, generalmente (aunque no necesariamente) entre los niveles o capas
+inferiores y los superiores del software. Uno de los principales propósitos de una
+API consiste en proporcionar un conjunto de funciones de uso general, por ejemplo, para
+dibujar ventanas o iconos en la pantalla. De esta forma, los programadores se benefician
+de las ventajas de la API haciendo uso de su funcionalidad, evitándose el trabajo de
+programar todo desde el principio. Las API asimismo son abstractas:
+el software que proporciona una cierta API generalmente es llamado la implementación
+de esa API.
+Por ejemplo, se puede ver la tarea de escribir "Hola Mundo" sobre la pantalla en diferentes
+niveles de abstracción:
+Haciendo todo el trabajo desde el principio:
+Traza, sobre papel milimetrado, la forma de las letras (y espacio) "H, o, l, a, M, u, n, d, o".
+Crea una matriz de cuadrados negros y blancos que se asemeje a la sucesión de letras.
+Mediante instrucciones en ensamblador, escribe la información de la matriz en la memoria
+intermedia ("buffer") de pantalla.
+Mediante la instrucción adecuada, haz que la tarjeta gráfica realice el volcado de esa
+información sobre la pantalla.
+Por medio de un sistema operativo para hacer parte del trabajo:
+Carga una fuente tipográfica proporcionada por el sistema operativo.
+Haz que el sistema operativo borre la pantalla.
+Haz que el sistema operativo dibuje el texto "Hola Mundo" usando la fuente cargada.
+Usando una aplicación (que a su vez usa el sistema operativo) para realizar la mayor parte
+del trabajo:
+Escribe un documento HTML con las palabras "Hola Mundo" para que un navegador web
+como Firefox, Chrome, Opera, Safari, Midori, Iceweasel, Web o Internet Explorer pueda
+representarlo en el monitor.
+Como se puede ver, la primera opción requiere más pasos, cada uno de los cuales es mucho
+más complicado que los pasos de las opciones siguientes. Además, no resulta nada práctico
+usar el primer planteamiento para representar una gran cantidad de información, como un
+artículo enciclopédico sobre la pantalla, mientras que el segundo enfoque simplifica la
+tarea eliminando un paso y haciendo el resto más sencillos y la tercera forma simplemente
+requiere escribir "Hola Mundo". Sin embargo, las API de alto nivel generalmente pierden
+flexibilidad; por ejemplo, resulta mucho más difícil en un navegador web hacer girar texto
+alrededor de un punto con un contorno parpadeante que programarlo a bajo nivel. Al elegir
+usar una API se debe llegar a un cierto equilibrio entre su potencia, simplicidad y pérdida
+de flexibilidad.
+Las API son valiosas, ante todo, porque permiten hacer uso de funciones ya existentes
+en otro software (o de la infraestructura ya existente en otras plataformas) para no estar
+reinventando la rueda constantemente, reutilizando así código que se sabe que está probado
+y que funciona correctamente. En el caso de herramientas propietarias (es decir, que no sean
+de código abierto), son un modo de hacer saber a los programadores de otras aplicaciones
+cómo incorporar una funcionalidad concreta sin por ello tener que proporcionar información
+acerca de cómo se realiza internamente el proceso.
