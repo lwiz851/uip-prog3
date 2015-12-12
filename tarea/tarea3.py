@@ -1,4 +1,5 @@
 # tarea 3 luis Martinez
+#numeros triangulares
 
 
 
