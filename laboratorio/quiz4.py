@@ -1,3 +1,7 @@
+__author__ = 'luis M'
+
+
+#quiz  lista de telerfono  luis Martinez
 import os
 print("DIRECTORIO TELEFONICO")
 opcion=0;
