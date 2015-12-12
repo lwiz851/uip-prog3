@@ -19,6 +19,9 @@ if minuto > day:
 
 
 
+
+
+
    print("los dias son:"+ str(rd) + "las hora: "+str(h) + "los minuto son: "+str((m)))
 
 elif minuto <= day:
