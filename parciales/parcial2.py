@@ -1,105 +1,61 @@
-__author__ = 'luis M'
+
 
 from kivy.app import App
-from kivy.lang import Builder
-from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.uix.label import Label
-from kivy.uix.textinput import TextInput
+from kivy.uix.button import Button
 from kivy.uix.floatlayout import FloatLayout
-from kivy.uix.boxlayout import BoxLayout
-from kivy.properties import *
-from kivy.graphics.vertex_instructions import *
-from kivy.graphics.context_instructions import *
+from kivy.uix.image import Image
+from kivy.uix.dropdown import DropDown
+from kivy.uix.label import Label
 
 
-Builder.load_string('''
-<MenuScreen>:
-	BoxLayout:
-		orientation: 'vertical'
-		Label:
-			text: 'TARIFAS DE TAXIS'
-			font_size: '30sp'
+class drop(App):
+	def o(self, origen):
+		self.dropdownO.select(origen.text)
+		self.b2.text=origen.text
+		origen=origen.text
+		print('Lugar de origen:',origen)
 
-		Button:
-			text: 'Sector Sur'
-			color: 0, 0, 1, 1
-			font_size: '24sp'
-			text_size: self.size
-			halign: 'center'
-			valign: 'middle'
-			size_hint: 1, 1
-			on_press: root.manager.current = 'sector_sur'
+	def d(self, destino):
+		self.dropdownD.select(destino.text)
+		self.b3.text=destino.text
+		destino=destino.text
+		print('Lugar de Destino:',destino)
 
-		Button:
-			text: 'Sector Norte'
-			color: 0, 0, 1, 1
-			font_size: '24sp'
-			text_size: self.size
-			halign: 'center'
-			valign: 'middle'
-			size_hint: 1, 1
-			on_press: root.manager.current = 'sector_norte'
-
-
-<Sector_sur>:
-	GridLayout:
-		cols: 2
-		Label:
-			text: 'Seleccione Sector de Partida'
-		TextInput:
-			id: sector_p
-		Label:
-			text: 'Seleccione Sector de Destino'
-		TextInput:
-			id: sector_d
-		Button:
-			text: 'Regresar al menu'
-			on_press: root.manager.current = 'menu'
-		Button:
-			text: 'Calcular Precio de Servicio'
-			on_press: app.calcular_p(sector_p.text, sector_d.text)
-
-<Sector_norte>:
-	GridLayout:
-		cols: 2
-		Label:
-			text: 'Seleccione Sector de Partida'
-		TextInput:
-			id: sector_p
-		Label:
-			text: 'Seleccione Sector de Destino'
-		TextInput:
-			id: sector_d
-		Button:
-			text: 'Regresar al menu'
-			on_press: root.manager.current = 'menu'
-		Button:
-			text: 'Calcular Precio de Servicio'
-			on_press: app.calcular_p(sector_p.text, sector_d.text)
-
-''')
-
-
-class MenuScreen(Screen):
-	pass
-
-class Sector_sur(Screen):
-	pass
-
-class Sector_norte(Screen):
-	pass
-
-sm = ScreenManager()
-sm.add_widget(MenuScreen(name='menu'))
-sm.add_widget(Sector_sur(name='sector_sur'))
-sm.add_widget(Sector_norte(name='sector_norte'))
-
-
-class PrincipalApp(App):
 
 	def build(self):
-		return sm
+		self.lista=(["DORADO"], ["ALBROOK"],["LOS ANDES"], ["TOCUMEN"], ["24 DE DICIEMBRE"], ["LAS CUMBRES"])
+		self.box = FloatLayout()
+		self.l = Label(pos_hint={'x': 0.5/2, 'center_y': 0.9}, size_hint=(0.5, 0.2),text='[color=000080][b][size=35]TARIFAS DE TAXI[/b][/color]',markup = True)
+		self.l2 = Label(pos_hint={'x': 0.5/2, 'center_y': 0.7}, size_hint=(0.5, 0.2),text='[color=FF0000][b][size=35][/b][/color]',markup = True)
+		self.dropdownO=DropDown()
+		self.dropdownD=DropDown()
 
 
-if __name__ == '__main__':
-    PrincipalApp().run()
+		for i in self.lista:
+			b0=Button(text=i[0], size_hint_y=None, height=30)
+			b0.bind(on_release=self.o)
+			self.dropdownO.add_widget(b0)
+
+		for t in self.lista:
+			b1=Button(text=t[0], size_hint_y=None, height=30)
+			b1.bind(on_release=self.d)
+			self.dropdownD.add_widget(b1)
+
+		self.b2=Button(pos_hint={'x': 0, 'center_y': .5}, size_hint=(0.5, 0.2),text='[color=ffA500][size=24]LUGAR DE ORIGEN[/color]', markup = True)
+		self.b2.bind(on_release=self.dropdownO.open)
+
+		self.b3=Button(pos_hint={'x': 0.5, 'center_y': .5}, size_hint=(0.5, 0.2),text='[color=ffA500][size=24]LUGAR DE DESTINO[/color]', markup = True)
+		self.b3.bind(on_release=self.dropdownD.open)
+
+		self.b_calcular=Button(pos_hint={'x': 0.5/2, 'center_y': .1}, size_hint=(0.5, 0.2),text='[color=00ff00][size=24]CALCULAR TARIFA[/color]', markup = True)
+		self.b_calcular.bind()
+
+		self.box.add_widget(self.b2)
+		self.box.add_widget(self.b3)
+		self.box.add_widget(self.b_calcular)
+		self.box.add_widget(self.l)
+
+
+		return self.box
+
+drop().run()
