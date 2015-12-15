@@ -3,6 +3,7 @@ __author__ = 'luis M'
 #Zahir Gudiño
 #Richard Hearn
 #Luis Martinez
+#Ivan HIdalgo
 
 from kivy.app import App
 from kivy.uix.button import Button
